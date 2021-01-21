@@ -2,8 +2,9 @@ import React from 'react'
 import './Search.css';
 
 function Search() {
+
     const getData=()=>{
-        fetch('data.json'
+        fetch('names.json'
         ,{
           headers : { 
             'Content-Type': 'application/json',
@@ -17,15 +18,22 @@ function Search() {
           })
           .then(function(myJson) {
             console.log(myJson);
+            setData(myJson)
           });
       }
+
       useEffect(()=>{
         getData()
       },[])
+      
+      const [data,setData]=useState([]);
+
 
   return (
     <div>
-      
+      {
+       data && data.length>0 && data.map((item)=><p>{item.about}</p>)
+     }
     </div>
   );
 }
