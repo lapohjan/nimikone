@@ -13,8 +13,9 @@ html {
     font-family: "Work Sans", sans-serif;
     background: #f4f4f4;
   }
+
   
-  header {
+  /* header {
     background: black;
     color: white;
     width: 100%;
@@ -33,11 +34,11 @@ html {
     padding: 20px;
 } */
 
-footer {
+/* footer {
     background: rgb(65, 64, 64);
     color: #ffff;
     height: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */ 
