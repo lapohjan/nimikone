@@ -14,13 +14,13 @@ function Search() {
       setData(fetchedData);
     });
   }
-  console.log(data);
+  // console.log(data);
   console.table(data);
-  console.log(typeof data);
+  // console.log(typeof data);
   // console.log(data.names[0].name)
 
   const names = data.map((i) => {
-    return <h1>{i.name}</h1>;
+    return <p>{i.name} : {i.amount}</p>;
   });
 
   return (
