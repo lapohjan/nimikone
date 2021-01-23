@@ -14,13 +14,16 @@ function Search() {
       setData(fetchedData);
     });
   }
-  // console.log(data);
-  console.table(data);
-  // console.log(typeof data);
-  // console.log(data.names[0].name)
 
-  const names = data.map((i) => {
-    return <p>{i.name} : {i.amount}</p>;
+  console.table(data);
+
+  const names = data.map((item, key) => {
+    return (
+      <tr key={key}>
+        <td>{item.name}</td>
+        <td>{item.amount}</td>
+      </tr>
+    );
   });
 
   return (
@@ -29,7 +32,12 @@ function Search() {
         <h1>Nimikone</h1>
       </header>
       <div className="App-main">
-        <p>Everyone at Solita:{names}</p>
+        <p>Everyone at Solita:</p>
+        <table className="table">
+          <th>Name</th>
+          <th>Amount</th>
+          <tbody>{names}</tbody>
+        </table>
       </div>
     </div>
   );
