@@ -63,7 +63,7 @@ function Search() {
         <button className="button2" onClick={(e) => setData(sortedData2)}>Sort by amount</button>
         </div>
         <br/>
-        <p>Everyone at Solita:</p>
+        <p>Top names at Solita:</p>
         <br/>
         <div>
           {names}
