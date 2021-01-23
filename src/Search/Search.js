@@ -1,97 +1,121 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react'
 
-function Search() {
-  const [data, setData] = useState([])
-  const [nameData, setNameData] = useState([])
-  const [amountData, setAmountData] = useState([])
+const names = [
+  {
+    "name": "Ville",
+    "amount": 24
+  },
+  {
+    "name": "Anna",
+    "amount": 6
+  },
+  {
+    "name": "Antti",
+    "amount": 22
+  },
+  {
+    "name": "Sanna",
+    "amount": 5
+  },
+  {
+    "name": "Mikko",
+    "amount": 19
+  },
+  {
+    "name": "Minna",
+    "amount": 5
+  },
+  {
+    "name": "Timo",
+    "amount": 18
+  },
+  {
+    "name": "Satu",
+    "amount": 5
+  },
+  {
+    "name": "Tuomas",
+    "amount": 16
+  },
+  {
+    "name": "Tiina",
+    "amount": 5
+  },
+  {
+    "name": "Tero",
+    "amount": 15
+  },
+  {
+    "name": "Kati",
+    "amount": 5
+  },
+  {
+    "name": "Sami",
+    "amount": 15
+  },
+  {
+    "name": "Henna",
+    "amount": 4
+  },
+  {
+    "name": "Mika",
+    "amount": 12
+  },
+  {
+    "name": "Liisa",
+    "amount": 4
+  },
+  {
+    "name": "Janne",
+    "amount": 12
+  },
+  {
+    "name": "Paula",
+    "amount": 4
+  },
+  {
+    "name": "Petri",
+    "amount": 11
+  },
+  {
+    "name": "Suvi",
+    "amount": 4
+  }
+]
+
+function App() {
+  const [data, setData] = useState([]);
+  const [sortType, setSortType] = useState('name');
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    const sortArray = type => {
+      const types = {
+        name: 'name',
+        amount: 'amount',
+      };
+      const sortProperty = types[type];
+      const sorted = [...names].sort((a, b) => b[sortProperty] - a[sortProperty]);
+      setData(sorted);
+    };
 
-  function fetchData() {
-    axios.get("http://localhost:3000/names.json")
-    .then((r) => {
-      const fetchedData = r.data
-      setData(fetchedData)
-
-      const fetchedData2 = JSON.parse(JSON.stringify(fetchedData));
-      setNameData(fetchedData2)
-
-      const fetchedData3 = JSON.parse(JSON.stringify(fetchedData));
-      setAmountData(fetchedData3)
-
-    })
-    .catch((err) => console.log('error, no data found'))
-  }
-
-  console.table(data);
-  console.table(nameData);
-  console.table(amountData);
-
-
-  nameData.sort(function(a, b) {
-    var textA = a.name.toUpperCase();
-    var textB = b.name.toUpperCase();
-    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-  });
-
-  amountData.sort(function(a, b) {
-    var numA = a.amount;
-    var numB = b.amount;
-    return (numA > numB) ? -1 : (numA < numB) ? 1 : 0;
-  });
-
-  const names = data.map((item, key) => {
-    return (
-      <tr key={key}>
-        <td>{item.name}</td>
-        <td>{item.amount}</td>
-      </tr>
-    );
-  });
-
-  const namesAlphabetical = nameData.map((item, key) => {
-    return (
-      <tr key={key}>
-        <td>{item.name}</td>
-        <td>{item.amount}</td>
-      </tr>
-    );
-  });
-
-  const namesAmount = amountData.map((item, key) => {
-    return (
-      <tr key={key}>
-        <td>{item.name}</td>
-        <td>{item.amount}</td>
-      </tr>
-    );
-  });
-
-
-console.log(data);
+    sortArray(sortType);
+  }, [sortType]); 
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Nimikone</h1>
-      </header>
-      <div className="App-main">
-        <p>Everyone at Solita:</p>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>{names}</tbody>
-        </table>
-      </div>
+      <select onChange={(e) => setSortType(e.target.value)}> 
+        <option value="name">Names</option>
+        <option value="amount">Amounts</option>
+      </select>
+
+      {data.map(item => (
+        <div key={item.name} style={{ margin: '30px' }}>
+          <div>{item.name}</div>
+          <div>{item.amount}</div>
+        </div>
+      ))}
     </div>
   );
 }
 
-export default Search;
+export default App;
