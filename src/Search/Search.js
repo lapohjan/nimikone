@@ -30,6 +30,7 @@ function Search() {
   console.table(nameData);
   console.table(amountData);
 
+
   nameData.sort(function(a, b) {
     var textA = a.name.toUpperCase();
     var textB = b.name.toUpperCase();
@@ -87,26 +88,6 @@ console.log(data);
             </tr>
           </thead>
           <tbody>{names}</tbody>
-        </table>
-        <br></br>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>{namesAlphabetical}</tbody>
-        </table>
-        <br></br>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>{namesAmount}</tbody>
         </table>
       </div>
     </div>
