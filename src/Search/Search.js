@@ -23,8 +23,8 @@ function Search() {
  
 
   const sortedData = data.slice().sort(function(a, b) {
-    var textA = a.name.toUpperCase();
-    var textB = b.name.toUpperCase();
+    var textA = a.name;
+    var textB = b.name;
     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     }
   );
@@ -55,17 +55,22 @@ function Search() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Nimikone</h1>
+        <h1>Solita Name Sorter</h1>
       </header>
       <div className="App-main">
+        <div>
+        <button className="button1" onClick={(e) => setData(sortedData)}>Sort alphabetically</button>
+        <button className="button2" onClick={(e) => setData(sortedData2)}>Sort by amount</button>
+        </div>
+        <br/>
         <p>Everyone at Solita:</p>
-        <button className="button4" onClick={(e) => setData(sortedData)}/>
-        <button className="button4" onClick={(e) => setData(sortedData2)}/>
+        <br/>
         <div>
           {names}
         </div>
       </div>
     </div>
+    
   );
 }
 
