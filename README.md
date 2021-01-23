@@ -2,6 +2,7 @@
 
 This is a dev-academy-2021 exercise for Solita.
 My task is to implement a name application.
+
 The application should have an user interface - either a web application or an api - or both.
 
 The user interface should provide at least the first one of the following requirements:
