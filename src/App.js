@@ -1,16 +1,13 @@
-import React from 'react'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-import './App.css';
+import React from "react";
+import Search from "./Search/Search";
+import Footer from "./Footer/Footer";
+import "./App.css";
 
 function App() {
-
-
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-         Hei!
-        </p>
-      </header>
+        <Search />
+        <Footer />
     </div>
   );
 }
