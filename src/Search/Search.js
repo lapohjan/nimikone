@@ -10,7 +10,7 @@ function Search() {
 
   function fetchData() {
     axios
-      .get("http://localhost:3000/names.json")
+      .get("https://lauratellervo.fi/namesorter/names.json")
       .then((r) => {
         const fetchedData = r.data.names;
         setData(fetchedData);
