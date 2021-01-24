@@ -1,6 +1,8 @@
 import React from "react";
 
 const Footer = () => (
-  <p> &copy; Laura Pohjanpalo 2021</p>
+  <div className="App-footer">
+    <p>&copy; Laura Pohjanpalo 2021</p>
+  </div>
 )
 export default Footer;

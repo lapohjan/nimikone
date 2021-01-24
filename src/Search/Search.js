@@ -12,7 +12,7 @@ function Search() {
     axios
       .get("http://localhost:3000/names.json")
       .then((r) => {
-        const fetchedData = r.data;
+        const fetchedData = r.data.names;
         setData(fetchedData);
       })
       .catch((err) => console.log("error, no data found"));
@@ -45,7 +45,14 @@ function Search() {
     );
   });
 
-  console.log(data);
+  const sum = data
+    .slice()
+    .reduce(
+      (accumulator, currentValue) => accumulator + currentValue.amount,
+      0
+    );
+
+  console.log(sum);
 
   return (
     <div className="App">
@@ -64,7 +71,13 @@ function Search() {
         <div className="App-names">
           <p>Top names at Solita:</p>
         </div>
-        <div>{names}</div>
+        <div>
+          {names}
+          <tr className="tr-sum">
+            <td className="td-name">Sum: </td>
+            <td className="td-amount">{sum}</td>
+          </tr>
+        </div>
       </div>
     </div>
   );

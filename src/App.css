@@ -65,6 +65,12 @@ body {
   }
 }
 
+@media only screen and (min-width: 700px) {
+  .App-main {
+    font-size: calc(10px + 1.4vmin);
+  }
+}
+
 /* Button styling based on www.w3schools.com/css/css3_buttons.asp */
 
 button {
@@ -112,6 +118,11 @@ button {
 .td-amount {
   text-align: right;
 }
+
+#sum-p {
+  font-weight: bold;
+}
+
 
 .App-footer{
   background:#1d1d1d;
