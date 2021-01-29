@@ -1,51 +1,17 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import namedata from "./names.json";
 
 function Search() {
   const [data, setData] = useState([]);
 
-  const getData=()=>{
-    fetch('https://lauratellervo.fi/namesorter/names.json'
-    ,{
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
-    }
-    )
-      .then(function(response){
-        console.log(response)
-        return response.json();
-      })
-      .then(function(myJson) {
-        console.log(myJson);
-        setData(myJson)
-      });
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  function fetchData() {
+    const fetchedData = namedata.names;
+    setData(fetchedData);
   }
-  useEffect(()=>{
-    getData()
-  },[])
-
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  // function fetchData() {
-  //   fetch("names.json"
-  //   ,{
-  //     headers : { 
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json'
-  //      }
-  //   }
-  //   )
-  //     .then((r) => {
-  //       const fetchedData = r.data.names;
-  //       setData(fetchedData);
-  //     })
-  //     .catch((err) => console.log("error, no data found"));
-  // }
 
   console.table(data);
 
