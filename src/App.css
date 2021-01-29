@@ -35,17 +35,18 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 1.8vmin);
+  font-size: 22px;
   color: #ffff;
   background: #2c0733;
+  margin-bottom: 40px;
 }
 
 .App-names {
-  padding-top: calc(10px + 1.8vmin);
-  padding-bottom: calc(10px + 1.8vmin);
+  padding-top: 5px;
+  padding-bottom: 5px;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 1.8vmin);
+  font-size: 22px;
   color: #ffff;
   background: #2c0733;
 }
@@ -64,9 +65,12 @@ body {
   }
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (max-width: 400px) {
   .App-main {
-    font-size: calc(10px + 1.4vmin);
+    font-size: 17px;
+  }
+  .App-names {
+    font-size: 17px;
   }
 }
 
@@ -127,11 +131,14 @@ button {
   height: 50px;
 }
 
-.App-footer{
+.App-footer {
+  display: block;
   background:#1d1d1d;
   color: #ffff;
   padding: 1rem;
-  margin-top: 30px;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  position:fixed;
+  bottom:0;
 }
